@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bimo.OnlineExam.mapper.ChooseQuestionMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.bimo.OnlineExam.pojo.ChooseQuestion">
+        <id column="id" property="id" />
+        <result column="title" property="title" />
+        <result column="choose_a" property="chooseA" />
+        <result column="choose_b" property="chooseB" />
+        <result column="choose_c" property="chooseC" />
+        <result column="choose_d" property="chooseD" />
+        <result column="answer" property="answer" />
+        <result column="analyse" property="analyse" />
+        <result column="exam_id" property="examId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, title, choose_a, choose_b, choose_c, choose_d, answer, analyse, exam_id
+    </sql>
+
+</mapper>
