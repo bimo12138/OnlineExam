@@ -3,7 +3,9 @@ package com.bimo.OnlineExam.utils;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.util.StringUtils;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
@@ -93,5 +95,33 @@ public class TokenUtils {
                 .parseClaimsJws(token)
                 .getBody();
         return claims;
+    }
+
+    /**
+     * 从 httpRequest 中获取其中的 Token
+     * @param request 请求
+     * @return token
+     */
+    public String getTokenFromRequest(HttpServletRequest request) {
+        String bearerToken = request.getHeader("Authorization");
+        if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
+            return bearerToken.substring(7, bearerToken.length());
+        }
+        return null;
+    }
+
+    /**
+     * 核实 token 是否过期
+     * @param token token
+     * @return 是否过期的布尔值
+     */
+    public boolean validateToken(String token) {
+        try {
+            Jwts.parser().setSigningKey(SECRET.getBytes(StandardCharsets.UTF_8)).parseClaimsJws(token);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

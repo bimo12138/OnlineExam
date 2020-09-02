@@ -8,11 +8,12 @@
         <result column="title" property="title" />
         <result column="answer" property="answer" />
         <result column="exam_id" property="examId" />
+        <result column="level" property="level" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, title, answer, exam_id
+        id, title, answer, exam_id, level
     </sql>
 
 </mapper>

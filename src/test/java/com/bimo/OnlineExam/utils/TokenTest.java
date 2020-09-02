@@ -19,15 +19,25 @@ public class TokenTest {
             public String getUsername() {
                 return "bimo";
             }
+
+            @Override
+            public boolean isSuperuser() {
+                return false;
+            }
+
+            @Override
+            public boolean isUploader() {
+                return false;
+            }
         });
         System.out.println(token);
     }
 
     @Test
     public void decodeToken() {
-        String token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiaW1vIiwiY3JlYXRlZCI6MTU5NTY1OTIyMjI2M" +
-                "iwiZXhwIjoxNTk1NzQ1NjIyfQ.sRocvR66B5xRGMOrYz2ckWP4x8Sad5Fu3tmgJKTZp8o";
+        String token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiaW1vIiwiY3JlYXRlZCI6MTU5NTg5ODE5NTM1MCwiZXhwIjoxNTk1OTg0NTk1fQ.wZ08HOJFTP8WqytlnuCATiNt6C6QY6_4GmjvDsJR0_s";
         TokenUtils tokenUtils = new TokenUtils();
         System.out.println(tokenUtils.getUsernameFromToken(token));
+        System.out.println(tokenUtils.validateToken(token));
     }
 }

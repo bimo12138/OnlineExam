@@ -1,8 +1,7 @@
 package com.bimo.OnlineExam.utils;
 
-import com.bimo.OnlineExam.expection.EncodeException;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
@@ -20,5 +19,9 @@ public class PasswordUtils {
             return null;
         }
         return passwordEncoder.encode(raw);
+    }
+
+    public static boolean match(String raw, String encodedPassword) {
+        return passwordEncoder.matches(raw, encodedPassword);
     }
 }

@@ -4,3 +4,23 @@ spring:
     username: bimo
     password: qwe123
     driver-class-name: com.mysql.jdbc.Driver
+
+  rabbitmq:
+    host: 192.168.245.129
+    port: 5672
+    username: bimo
+    password: qwe123
+
+  mail:
+    host: smtp.qq.com
+    username: 1371639183@qq.com
+    password: vatovqboqsfgjbhg
+    default-encoding: UTF-8
+    port: 25
+
+  redis:
+    host: 192.168.245.129
+
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

@@ -13,11 +13,12 @@
         <result column="answer" property="answer" />
         <result column="analyse" property="analyse" />
         <result column="exam_id" property="examId" />
+        <result column="level" property="level" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, title, choose_a, choose_b, choose_c, choose_d, answer, analyse, exam_id
+        id, title, choose_a, choose_b, choose_c, choose_d, answer, analyse, exam_id, level
     </sql>
 
 </mapper>

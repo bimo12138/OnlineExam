@@ -11,11 +11,31 @@
         <result column="end_time" property="endTime" />
         <result column="available_score" property="availableScore" />
         <result column="uploader" property="uploader" />
+        <result column="status" property="status" />
+        <result column="raw_file" property="rawFile" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, name, upload_time, start_time, end_time, available_score, uploader
+        id, name, upload_time, start_time, end_time, available_score, uploader, status, raw_file
     </sql>
+
+    <resultMap id="ExamTransport" type="com.bimo.OnlineExam.VO.ExamTransport">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="upload_time" property="uploadTime" />
+        <result column="start_time" property="startTime" />
+        <result column="end_time" property="endTime" />
+        <result column="available_score" property="availableScore" />
+        <result column="uploader" property="uploader" />
+        <result column="status" property="status" />
+    </resultMap>
+
+<!--    <select id="getNewExams" resultMap="ExamTransport">-->
+<!--        SELECT-->
+<!--            exam.id, exam.name, exam.upload_time, exam.start_time, exam.end_time, exam.available_score,-->
+<!--            user.username as uploader, exam.status-->
+<!--        FROM exam LEFT JOIN user on user.id = exam.uploader-->
+<!--    </select>-->
 
 </mapper>

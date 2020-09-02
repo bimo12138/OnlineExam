@@ -1,5 +1,6 @@
 package com.bimo.OnlineExam.pojo;
 
+import com.alibaba.excel.annotation.ExcelIgnore;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -22,6 +23,7 @@ public class ChooseQuestion extends Model<ChooseQuestion> {
     private static final long serialVersionUID=1L;
 
     @TableId(value = "id", type = IdType.AUTO)
+    @ExcelIgnore
     private Integer id;
 
     private String title;
@@ -38,8 +40,10 @@ public class ChooseQuestion extends Model<ChooseQuestion> {
 
     private String analyse;
 
+    @ExcelIgnore
     private Integer examId;
 
+    private String level;
 
     @Override
     protected Serializable pkVal() {

@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * <p>
@@ -29,14 +30,24 @@ public class Exam extends Model<Exam> {
 
     private LocalDateTime uploadTime;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime startTime;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime endTime;
 
     private Integer availableScore;
 
     private Integer uploader;
+    /**
+     * 0 上传 -> 解析中
+     * 1 解析成功
+     * 2 结束考试
+     * 3 废弃
+     */
+    private String status;
 
+    private String rawFile;
 
     @Override
     protected Serializable pkVal() {

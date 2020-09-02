@@ -26,4 +26,10 @@ public class EncodeUtils {
             System.out.println(passwordEncoder.matches("Password", encryptedPassword)); // false
         }
     }
+
+    @Test
+    public void testMatch() {
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        System.out.println(passwordEncoder.matches("qwe1223", "$2a$10$FPo0wF43kH41WQww38bS8ervm2ZhQJbfh3ujlsVNIr0f6jPIbdrZm"));
+    }
 }

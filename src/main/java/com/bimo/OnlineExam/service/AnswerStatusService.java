@@ -12,5 +12,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2020-07-26
  */
 public interface AnswerStatusService extends IService<AnswerStatus> {
-
+    public AnswerStatus getAnswerByUserIdAndExamId(Integer userId, Integer examId);
 }
